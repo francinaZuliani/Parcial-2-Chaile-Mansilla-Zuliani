@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 C:/Users/bd/Desktop/Programacion/Parcial 2 Chaile, Mansilla, Zuliani/cmake-build-debug/CMakeFiles/edit_cache.dir
 C:/Users/bd/Desktop/Programacion/Parcial 2 Chaile, Mansilla, Zuliani/cmake-build-debug/CMakeFiles/Parcial_2_Chaile__Mansilla__Zuliani.dir
 C:/Users/bd/Desktop/Programacion/Parcial 2 Chaile, Mansilla, Zuliani/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+=======
+C:/Users/bd/Desktop/Programacion/Parcial 2 Chaile, Mansilla, Zuliani/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/bd/Desktop/Programacion/Parcial 2 Chaile, Mansilla, Zuliani/cmake-build-debug/CMakeFiles/Parcial_2_Chaile__Mansilla__Zuliani.dir
+C:/Users/bd/Desktop/Programacion/Parcial 2 Chaile, Mansilla, Zuliani/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+>>>>>>> 0b97b17434ab84bdda00c3420c5ab209c03aeb64
