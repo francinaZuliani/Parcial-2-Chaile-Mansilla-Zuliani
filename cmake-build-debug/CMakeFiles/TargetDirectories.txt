@@ -1,0 +1,3 @@
+C:/Users/bd/Desktop/Programacion/Parcial-2-Chaile-Mansilla-Zuliani/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/bd/Desktop/Programacion/Parcial-2-Chaile-Mansilla-Zuliani/cmake-build-debug/CMakeFiles/Parcial_2_Chaile_Mansilla_Zuliani.dir
+C:/Users/bd/Desktop/Programacion/Parcial-2-Chaile-Mansilla-Zuliani/cmake-build-debug/CMakeFiles/rebuild_cache.dir
