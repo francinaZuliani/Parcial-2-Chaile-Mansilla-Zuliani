@@ -12,12 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="015664ce-9074-4186-beaf-9dd684f330aa" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Pila.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nodo.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Parcial_2_Chaile_Mansilla_Zuliani.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Parcial_2_Chaile_Mansilla_Zuliani.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Parcial_2_Chaile_Mansilla_Zuliani.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Parcial_2_Chaile_Mansilla_Zuliani.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Parcial_2_Chaile_Mansilla_Zuliani.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Parcial_2_Chaile_Mansilla_Zuliani.dir/depend.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Parcial_2_Chaile_Mansilla_Zuliani.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Parcial_2_Chaile_Mansilla_Zuliani.dir/main.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Parcial_2_Chaile_Mansilla_Zuliani.dir/objects.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Parcial_2_Chaile_Mansilla_Zuliani.dir/objects.a" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Parcial_2_Chaile_Mansilla_Zuliani.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Parcial_2_Chaile_Mansilla_Zuliani.exe" afterDir="false" />
@@ -83,7 +78,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1635977998963</updated>
-      <workItem from="1635978001438" duration="17087000" />
+      <workItem from="1635978001438" duration="20807000" />
     </task>
     <servers />
   </component>
