@@ -7,4 +7,14 @@
 #IncludeRegexTransform: 
 
 C:/Users/bd/Desktop/Programacion/Parcial-2-Chaile-Mansilla-Zuliani/main.cpp
+iostream
+-
+fstream
+-
+sstream
+-
+string.h
+C:/Users/bd/Desktop/Programacion/Parcial-2-Chaile-Mansilla-Zuliani/string.h
+vector
+-
 
