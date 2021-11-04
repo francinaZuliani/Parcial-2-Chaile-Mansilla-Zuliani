@@ -5,13 +5,11 @@
 #include <vector>
 #include "Pila.h"
 
-
 using namespace std;
 
 
 void chopCSV(string fileName, int lines)
 {
-
     string newName = fileName.substr(0, fileName.find(".csv"));
     newName += to_string(lines) + ".csv";
 
@@ -27,59 +25,13 @@ void chopCSV(string fileName, int lines)
     }
 }
 
-void exploreCSV(string fileName)
-{
-    int colsOfInterest[] = {5,14,20};
-    int nColumns = sizeof(colsOfInterest) / sizeof(colsOfInterest[0]);
-
-    fstream fin;
-    fin.open("./" + fileName, ios::in);
-
-    vector<string> row;
-    string line, word;
-    int confirmed = 0;
-    int total = -1;
-
-    while (getline(fin, line))
-    {
-        total++;
-        row.clear();
-        stringstream s(line);
-        while (getline(s, word, ','))
-        {
-            if (word.size() > 0)
-            {
-                word = word.substr(1, word.size() - 2);
-            }
-            else
-            {
-                word = "NA";
-            }
-            row.push_back(word);
-        }
-
-
-        if (row[20].compare("Confirmado") == 0 || total==0)
-        {
-            for (int i = 0; i < nColumns; i++)
-            {
-                cout << row[colsOfInterest[i]] << " ";
-            }
-            confirmed++;
-            cout << endl;
-        }
-
-    cout << "Casos confirmados: " << confirmed << " de " << total << " casos registrados." << endl;
-}
-
-}
 
 void p_casos(string fileName)
 {
     int colsOfInterest[] = {5};
     int nColumns = sizeof(colsOfInterest) / sizeof(colsOfInterest[0]);
 
-    int confirmadoscaba = -1,  confirmadosbsas = -1, confirmadosjujuy=-1, confirmadossalta=-1;
+    int confirmadoscaba = -1,  confirmadosbsas = -1, confirmadosjujuy=-1, confirmadossalta=-1, confirmadosstafe=-1, confirmadosformosa = -1;
 
     Pila <string> p;
     fstream fin;
@@ -120,7 +72,7 @@ void p_casos(string fileName)
             {
                 confirmadoscaba++;
             }
-            if (p.pop().compare("Buenos Aires") == 0 || total==0)
+           /* if (p.pop().compare("Buenos Aires") == 0 || total==0)
             {
                 confirmadosbsas++;
             }
@@ -134,11 +86,11 @@ void p_casos(string fileName)
             }
             if (p.pop().compare("Santa Fe") == 0 || total==0)
             {
-                confirmadoscaba++;
+                confirmadosstafe++;
             }
             if (p.pop().compare("Formosa") == 0 || total==0)
             {
-                confirmadoscaba++;
+                confirmadosformosa++;
             }
             if (p.pop().compare("Misiones") == 0 || total==0)
             {
@@ -216,8 +168,7 @@ void p_casos(string fileName)
             {
                 confirmadoscaba++;
             }
-            //ACA
-
+*/
             cout << endl;
         }
     }
@@ -231,7 +182,7 @@ int funcmuertes(string fileName)
 {
     int colsOfInterest[] = {5};
     int nColumns = sizeof(colsOfInterest) / sizeof(colsOfInterest[0]);
-    int M[24][2];
+
     int muertescaba = -1;
     Pila <string> p;
     fstream fin;
@@ -280,16 +231,78 @@ int funcmuertes(string fileName)
 
     //return muertescaba;
 
-    for (int a=0; a<24; a++)
-    {
-        for (int b=0; b<2; b++)
-        {
-            M[a][b]=M["Cordoba"][muertescba];
-        }
-    }
 }
 
+//estadisticas
 
+void estad(int t, int i, int m)
+{
+   float pinfectados, pmuertes;
+    cout<<"El total de casos registrados es de "<<t<<endl;
+    cout<<"El total de casos infectados es de "<<i<<endl;
+    cout<<"El total de fallecidos es de "<<m<<endl;
+    pinfectados=(i*100)/t;
+    pmuertes=(m*100)/i;
+    cout<<"El porcentaje de infectados por muestra es de %"<<pinfectados<<endl;
+    cout<<"El porcentaje de fallecidos por infectados es de %"<<pmuertes<<endl;
+}
+
+int funcestad(string fileName)
+{
+    int cinfectados=-1, cmuertes=-1,casos4050=-1,casos010=-1,rango10=0;
+    fstream fin;
+    fin.open("./" + fileName, ios::in);
+
+    vector<string> row;
+    string line, word;
+    int confirmed = 0;
+    int total = -1;
+
+    while (getline(fin, line))
+    {
+        total++;
+        row.clear();
+        stringstream s(line);
+        while (getline(s, word, ','))
+        {
+            if (word.size() > 0)
+            {
+                word = word.substr(1, word.size() - 2);
+            }
+            else
+            {
+                word = "NA";
+            }
+            row.push_back(word); //nos agrega en la lista word
+        }
+
+        if (row[20].compare("Confirmado") == 0 || total==0) //Filtramos los casos confirmados
+            {
+            cinfectados++;
+            cout << endl;
+            }
+        if (row[14].compare("SI") == 0 || total==0) //Filtramos los casos confirmados
+            {
+            cmuertes++;
+            cout << endl;
+            }
+
+
+        if ("0"<row[2] && row[2]<"11")
+        {
+            rango10++;
+            cout<<row[2]<<endl;
+        }
+
+    }
+
+    //cout<<"Casos 010"<<casos010<<endl;
+
+    cout<<"rango 10 "<<rango10<<endl;
+    estad(total,cinfectados,cmuertes);
+    return 0;
+
+}
 
 
 
@@ -340,25 +353,11 @@ int main(int argc, char **argv)
             //exploreHeaders(argv[i+1]);
            // exploreCSV(argv[i+1]);
           //p_casos(argv[i+1]);
-          funcmuertes(argv[i+1]);
+          //funcmuertes(argv[i+1]);
+          funcestad(argv[i+1]);
             break;
         }
-
     }
 
     return 0;
 }
-
-//funciones argumentos
-
-/*
-int p_casos(int n)
-{
-
-for (int i=1; i<=n; i++)
-{
-    cout<<"Las primeras "<<n<<" provincias son: " <<endl;
-}
-}*/
-
-int p_muertes

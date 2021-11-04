@@ -13,8 +13,6 @@
   <component name="ChangeListManager">
     <list default="true" id="015664ce-9074-4186-beaf-9dd684f330aa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Parcial_2_Chaile_Mansilla_Zuliani.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Parcial_2_Chaile_Mansilla_Zuliani.dir/main.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Parcial_2_Chaile_Mansilla_Zuliani.dir/objects.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Parcial_2_Chaile_Mansilla_Zuliani.dir/objects.a" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Parcial_2_Chaile_Mansilla_Zuliani.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Parcial_2_Chaile_Mansilla_Zuliani.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
@@ -28,6 +26,10 @@
     <option name="formatViaClangd" value="false" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="20SFGTl1IXXUICdgmHi7RFGjs0w" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -44,7 +46,7 @@
     <property name="cf.first.check.clang-format" value="false" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="cmake.loaded.for.project" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../2021a2-u03-pilas-francinaZuliani" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../2021a2-u02-listas-francinaZuliani" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="CPPToolchains" />
   </component>
@@ -54,12 +56,12 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+    <configuration name="Parcial_2_Chaile_Mansilla_Zuliani" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-file Covid19Casos1000.csv" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Parcial_2_Chaile_Mansilla_Zuliani" TARGET_NAME="Parcial_2_Chaile_Mansilla_Zuliani" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Parcial_2_Chaile_Mansilla_Zuliani" RUN_TARGET_NAME="Parcial_2_Chaile_Mansilla_Zuliani">
       <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Parcial_2_Chaile_Mansilla_Zuliani" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-file Covid19Casos1000.csv" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Parcial_2_Chaile_Mansilla_Zuliani" TARGET_NAME="Parcial_2_Chaile_Mansilla_Zuliani" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Parcial_2_Chaile_Mansilla_Zuliani" RUN_TARGET_NAME="Parcial_2_Chaile_Mansilla_Zuliani">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -78,7 +80,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1635977998963</updated>
-      <workItem from="1635978001438" duration="20807000" />
+      <workItem from="1635978001438" duration="21166000" />
+      <workItem from="1636029989488" duration="7689000" />
     </task>
     <servers />
   </component>
@@ -95,6 +98,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
