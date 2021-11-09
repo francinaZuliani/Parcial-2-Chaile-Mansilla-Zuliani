@@ -102,12 +102,10 @@ int funcestad(string fileName)
         if (row.getDato(20).compare("Confirmado") == 0 || total==0) //Filtramos los casos confirmados
             {
             cinfectados++;
-            cout << endl;
             }
         if (row.getDato(14).compare("SI") == 0 || total==0) //Filtramos los casos confirmados
             {
             cmuertes++;
-            cout << endl;
             }
         string años;
 
@@ -184,8 +182,9 @@ int funcestad(string fileName)
 //termina estadísticas
 
 
+//p_casos
 
-
+/*
 unsigned int miHashFunc(string clave)
 {
     unsigned int idx=0;
@@ -194,7 +193,6 @@ unsigned int miHashFunc(string clave)
     }
     return idx;
 }
-
 
 void p_casos(string fileName)
 {
@@ -236,28 +234,93 @@ void p_casos(string fileName)
 
         if (row.getDato(20).compare("Confirmado") == 0 || total==0) //Filtramos los casos confirmados
         {
-            int a=1;
+
             for (int i = 0; i < nColumns; i++)
             {
+                int a=1;
                 try{
                     th.put(row.getDato(colsOfInterest[i]),a);
                 }catch(int error) {
                     if (error==409){
-                        //a=a++;
+                        a++;
+                        th.put(row.getDato(colsOfInterest[i]),a);
+                    }
+                }
+            }
+        }
+
+    }
+    th.print();
+}
+ */
+
+
+unsigned int miHashFunc(string clave)
+{
+    unsigned int idx=0;
+    for(int i=0; i<clave.length(); i++){
+        idx += clave[i];
+    }
+    return idx;
+}
+
+void p_casos(string fileName)
+{
+    int colsOfInterest[] = {5};
+    int nColumns = sizeof(colsOfInterest) / sizeof(colsOfInterest[0]);
+
+    fstream fin;
+    fin.open("./" + fileName, ios::in);
+
+    HashMap<string,int> th (23, &miHashFunc);
+    int tamanio = 23;
+
+    Lista<string> row;
+    string line, word;
+
+    int total = -1;
+
+    while (getline(fin, line))
+    {
+        total++;
+        row.vaciar();
+        stringstream s(line);
+        while (getline(s, word, ','))
+        {
+            if (word.size() > 0)
+            {
+                word = word.substr(1, word.size() - 2);
+            }
+            else
+            {
+                word = "NA";
+            }
+            row.insertarUltimo(word);
+        }
+
+        if (row.getDato(20).compare("Confirmado") == 0 || total==0) //filtramos confirmados
+        {
+
+            int a = 0;
+            for (int i = 0; i < nColumns; i++){
+
+                try{
+                    th.put(row.getDato(colsOfInterest[i]),1);
+                }catch(int error) {
+                    if (error==409){
+
                         th.put(row.getDato(colsOfInterest[i]),a++);
                     }
                 }
-
-
-            }
             }
 
-            cout << endl;
         }
-    th.print();
     }
+    th.print();
+}
 
 
+//termina p_casos
 
 
 
@@ -364,9 +427,9 @@ int main(int argc, char **argv)
             cout << "Nombre del Archivo: " << argv[i+1] << endl;
             //exploreHeaders(argv[i+1]);
            // exploreCSV(argv[i+1]);
-          //p_casos(argv[i+1]);
+          p_casos(argv[i+1]);
           //funcmuertes(argv[i+1]);
-          funcestad(argv[i+1]);
+          //funcestad(argv[i+1]);
             break;
         }
     }
