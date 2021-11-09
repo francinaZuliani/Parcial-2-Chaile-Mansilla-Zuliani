@@ -29,9 +29,10 @@ void chopCSV(string fileName, int lines)
     }
 }
 
-//estadisticas
+//estadísticas
 
-void estad(int t, int i, int m, int r10, int r20, int r30, int r40, int r50, int r60, int r70, int r80, int r90, int r100, int r110 )
+void estad(int t, int i, int m, int ri10, int ri20, int ri30, int ri40, int ri50, int ri60, int ri70, int ri80, int ri90, int ri100, int ri110,
+           int rm10, int rm20, int rm30, int rm40, int rm50, int rm60, int rm70, int rm80, int rm90, int rm100, int rm110)
 {
     float pinfectados, pmuertes;
     cout<<"El total de casos registrados es de "<<t<<endl;
@@ -41,17 +42,37 @@ void estad(int t, int i, int m, int r10, int r20, int r30, int r40, int r50, int
     pmuertes=(m*100)/i;
     cout<<"El porcentaje de infectados por muestra es de %"<<pinfectados<<endl;
     cout<<"El porcentaje de fallecidos por infectados es de %"<<pmuertes<<endl;
-    cout<<"El rango etario de 1 a 10 es de "<<r10<<endl;
-    cout<<"El rango etario de 11 a 20 es de "<<r20<<endl;
-    cout<<"El rango etario de 21 a 30 es de "<<r30<<endl;
-    cout<<"El rango etario de 31 a 40 es de "<<r40<<endl;
-    cout<<"El rango etario de 41 a 50 es de "<<r50<<endl;
-    cout<<"El rango etario de 510 a 60 es de "<<r60<<endl;
+    cout<<endl;
+    cout<<"El rango etario de infectados de 1 a 10 anios es de "<<ri10<<endl;
+    cout<<"El rango etario de infectados de 11 a 20 anios es de "<<ri20<<endl;
+    cout<<"El rango etario de infectados de 21 a 30 anios es de "<<ri30<<endl;
+    cout<<"El rango etario de infectados de 31 a 40 anios es de "<<ri40<<endl;
+    cout<<"El rango etario de infectados de 41 a 50 anios es de "<<ri50<<endl;
+    cout<<"El rango etario de infectados de 51 a 60 anios es de "<<ri60<<endl;
+    cout<<"El rango etario de infectados de 61 a 70 anios es de "<<ri70<<endl;
+    cout<<"El rango etario de infectados de 71 a 80 anios es de "<<ri80<<endl;
+    cout<<"El rango etario de infectados de 81 a 90 anios es de "<<ri90<<endl;
+    cout<<"El rango etario de infectados de 91 a 100 anios es de "<<ri100<<endl;
+    cout<<"El rango etario de infectados de 101 a 110 anios es de "<<ri110<<endl;
+    cout<<endl;
+    cout<<"El rango etario de fallecidos de 1 a 10 anios es de "<<rm10<<endl;
+    cout<<"El rango etario de fallecidos de 11 a 20 anios es de "<<rm20<<endl;
+    cout<<"El rango etario de fallecidos de 21 a 30 anios es de "<<rm30<<endl;
+    cout<<"El rango etario de fallecidos de 31 a 40 anios es de "<<rm40<<endl;
+    cout<<"El rango etario de fallecidos de 41 a 50 anios es de "<<rm50<<endl;
+    cout<<"El rango etario de fallecidos de 51 a 60 anios es de "<<rm60<<endl;
+    cout<<"El rango etario de fallecidos de 61 a 70 anios es de "<<rm70<<endl;
+    cout<<"El rango etario de fallecidos de 71 a 80 anios es de "<<rm80<<endl;
+    cout<<"El rango etario de fallecidos de 81 a 90 anios es de "<<rm90<<endl;
+    cout<<"El rango etario de fallecidos de 91 a 100 anios es de "<<rm100<<endl;
+    cout<<"El rango etario de fallecidos de 101 a 110 anios es de "<<rm70<<endl;
+
 }
 
 int funcestad(string fileName)
 {
-    int cinfectados=-1, cmuertes=-1,casos4050=-1,rango10=0,rango20=0,rango30=0,rango40=0,rango50=0,rango60=0,rango70=0,rango80=0,rango90=0,rango100=0,rango110=0;
+    int cinfectados=-1, cmuertes=-1,casos4050=-1,rangoi10=0,rangoi20=0,rangoi30=0,rangoi40=0,rangoi50=0,rangoi60=0,rangoi70=0,rangoi80=0,rangoi90=0,rangoi100=0,rangoi110=0,
+    rangom10=0,rangom20=0,rangom30=0,rangom40=0,rangom50=0,rangom60=0,rangom70=0,rangom80=0,rangom90=0,rangom100=0,rangom110=0;
     fstream fin;
     fin.open("./" + fileName, ios::in);
 
@@ -90,66 +111,77 @@ int funcestad(string fileName)
             }
         string años;
 
+        //Cantidad de infectados por rango etario (rango de 10 años)
         if (row.getDato(20).compare("Confirmado") == 0 || total==0)
         {
             if (row.getDato(2).compare("NA") != 0)
             {
-                int edad=0;
+                int edad;
                 stringstream(row.getDato(2))>>edad;
 
-                if (edad>0 || edad <= 10)
-                {
-                    rango10 ++;
-                }
-                if (edad>= 11 || edad >=20)
-                {
-                    rango20++;
-                }
-                if (edad>= 21 || edad >=30)
-                {
-                    rango30++;
-                }
-                if (edad>= 31 || edad >=40)
-                {
-                    rango40++;
-                }
-                if (edad>=41 || edad >=50)
-                {
-                    rango50++;
-                }
-                if (edad>= 51 || edad >=60)
-                {
-                    rango60++;
-                }
-                if (edad>= 61 || edad >=70)
-                {
-                    rango70++;
-                }
-                if (edad>= 71 || edad >=80)
-                {
-                    rango80++;
-                }
-                if (edad>= 81 || edad >=90)
-                {
-                    rango90++;
-                }
-                if (edad>= 91 || edad >=100)
-                {
-                    rango100++;
-                }
-                if (edad>= 101 || edad >=110)
-                {
-                    rango110++;
-                }
+                if (edad>0 && edad <= 10)
+                {rangoi10 ++;}
+                if (edad>= 11 && edad <=20)
+                {rangoi20++;}
+                if (edad>= 21 && edad <=30)
+                {rangoi30++;}
+                if (edad>= 31 && edad <=40)
+                {rangoi40++;}
+                if (edad>=41 && edad <=50)
+                {rangoi50++;}
+                if (edad>= 51 && edad <=60)
+                {rangoi60++;}
+                if (edad>= 61 && edad <=70)
+                {rangoi70++;}
+                if (edad>= 71 && edad <=80)
+                {rangoi80++;}
+                if (edad>= 81 && edad <=90)
+                {rangoi90++;}
+                if (edad>= 91 && edad <=100)
+                {rangoi100++;}
+                if (edad>= 101 && edad <=110)
+                {rangoi110++;}
             }
         }
+        //Cantidad de muertes por rango etario (rango de 10 años)
+        if (row.getDato(14).compare("SI") == 0 || total==0)
+        {
+            if (row.getDato(2).compare("NA") != 0)
+            {
+                int edad;
+                stringstream(row.getDato(2))>>edad;
 
+                if (edad>0 && edad <= 10)
+                {rangom10 ++;}
+                if (edad>= 11 && edad <=20)
+                {rangom20++;}
+                if (edad>= 21 && edad <=30)
+                {rangom30++;}
+                if (edad>= 31 && edad <=40)
+                {rangom40++;}
+                if (edad>=41 && edad <=50)
+                {rangom50++;}
+                if (edad>= 51 && edad <=60)
+                {rangom60++;}
+                if (edad>= 61 && edad <=70)
+                {rangom70++;}
+                if (edad>= 71 && edad <=80)
+                {rangom80++;}
+                if (edad>= 81 && edad <=90)
+                {rangom90++;}
+                if (edad>= 91 && edad <=100)
+                {rangom100++;}
+                if (edad>= 101 && edad <=110)
+                {rangom110++;}
+            }
+        }
     }
-    cout<<"rango 10 "<<rango10<<endl;
-    estad(total,cinfectados,cmuertes,rango10,rango20,rango30,rango40,rango50,rango60,rango70,rango80,rango90,rango100,rango110);
+
+    estad(total,cinfectados,cmuertes,rangoi10,rangoi20,rangoi30,rangoi40,rangoi50,rangoi60,rangoi70,rangoi80,rangoi90,rangoi100,rangoi110,
+          rangom10,rangom20,rangom30,rangom40,rangom50,rangom60,rangom70,rangom80,rangom90,rangom100,rangom110);
     return 0;
 }
-//termina estad
+//termina estadísticas
 
 
 

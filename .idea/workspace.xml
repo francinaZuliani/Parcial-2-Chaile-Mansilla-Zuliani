@@ -13,7 +13,6 @@
   <component name="ChangeListManager">
     <list default="true" id="015664ce-9074-4186-beaf-9dd684f330aa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Parcial_2_Chaile_Mansilla_Zuliani.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Parcial_2_Chaile_Mansilla_Zuliani.dir/CXX.includecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Parcial_2_Chaile_Mansilla_Zuliani.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Parcial_2_Chaile_Mansilla_Zuliani.dir/main.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Parcial_2_Chaile_Mansilla_Zuliani.dir/objects.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Parcial_2_Chaile_Mansilla_Zuliani.dir/objects.a" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Parcial_2_Chaile_Mansilla_Zuliani.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Parcial_2_Chaile_Mansilla_Zuliani.exe" afterDir="false" />
@@ -72,11 +71,6 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -88,7 +82,9 @@
       <updated>1635977998963</updated>
       <workItem from="1635978001438" duration="21166000" />
       <workItem from="1636029989488" duration="25523000" />
-      <workItem from="1636149072951" duration="7921000" />
+      <workItem from="1636149072951" duration="8055000" />
+      <workItem from="1636489923474" duration="3214000" />
+      <workItem from="1636493226173" duration="1000" />
     </task>
     <servers />
   </component>
