@@ -69,6 +69,8 @@ template <class K, class T>
                             }
                         }
                         template <class K, class T>
+
+
                                 T HashMap<K, T>::get(K clave)
                                 {
                                     unsigned int pos = hashFuncP(clave) % tamanio;
@@ -76,6 +78,7 @@ template <class K, class T>
                                     {
                                         throw 404;
                                     }
+
                                     if(tabla[pos]->getClave() == clave){
                                         return tabla[pos]->getValor();
                                     }else{

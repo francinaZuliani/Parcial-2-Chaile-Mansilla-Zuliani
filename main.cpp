@@ -347,8 +347,10 @@ unsigned int miHashFunc(string clave)
     return idx;
 }
 //funpcasos
+
 void funcasos(string fileName)
 {
+    int c[24][2];
     int colsOfInterest[] = {7};
     int nColumns = sizeof(colsOfInterest) / sizeof(colsOfInterest[0]);
 
@@ -359,7 +361,7 @@ void funcasos(string fileName)
     string line, word;
 
     int total = -1;
-
+    int j=0;
     //Defino tabla Hash
     HashMap<string,int> TH (24,&miHashFunc);
 
@@ -390,23 +392,25 @@ void funcasos(string fileName)
                 TH.put(row.getDato(7),1);
             }
 
-
-
-            /*int n;
-                cout<<"Ingrese el numero de provincias con más contagios que desea ver: "<<endl;
-                cin>>n;
-                for (int i=0; i<n; i++)
-                {
-
-
-                }*/
-
-
-
         }
 
     }
-    TH.print();
+    for(int i = 0; i < 24; i++)
+    {
+        j++;
+        c[i][0]=j;
+        c[i][1]=TH.get(row.getDato(7));
+    }
+     TH.print();
+    cout<<"\nMostrando matriz\n\n";
+
+    for(int i=0;i<24;i++){
+        for(int j=0;j<2;j++){
+            cout<<"         "<<c[i][j] <<"\t";
+        }
+        cout<<"\n";
+    }
+
 }
 void p_casos(int n){
 
@@ -418,21 +422,19 @@ void p_casos(int n){
 //p_muertes
 int funcmuertes(string fileName)
 {
-    int colsOfInterest[] = {5};
+    int c[24][2];
+    int colsOfInterest[] = {7};
     int nColumns = sizeof(colsOfInterest) / sizeof(colsOfInterest[0]);
-
-    int muertescaba =-1;
 
     fstream fin;
     fin.open("./" + fileName, ios::in);
 
-    Lista <string> row;
+    Lista<string> row;
     string line, word;
 
     int total = -1;
-
+    int j=0;
     //Defino tabla Hash
-
     HashMap<string,int> TH (24,&miHashFunc);
 
     while (getline(fin, line))
@@ -454,15 +456,21 @@ int funcmuertes(string fileName)
         }
 
 
-        if (row.getDato(14).compare("SI") == 0 || total==0) //Filtramos los casos confirmados
+        if (row.getDato(14).compare("SI") == 0 || total==0) //filtramos confirmados
             {
-            if (row.getDato(5).compare("SIN ESPECIFICAR") != 0 && row.getDato(5).compare("residencia_provincia_nombre") != 0)
+            //int a=1;
+            if (row.getDato(7).compare("SIN ESPECIFICAR") != 0 && row.getDato(7).compare("carga_provincia_nombre") != 0)
             {
                 TH.put(row.getDato(7),1);
             }
 
-            }       }TH.print();
-}
+            }
+
+    }
+    TH.print();
+    }
+
+
 //termina p_muertes
 
 
@@ -565,8 +573,8 @@ int main(int argc, char **argv)
             //exploreHeaders(argv[i+1]);
            // exploreCSV(argv[i+1]);
           //p_casos(argv[i+1]);
-            funcasos(argv[i+1]);
-          //funcmuertes(argv[i+1]);
+            //funcasos(argv[i+1]);
+          funcmuertes(argv[i+1]);
           //funcestad(argv[i+1]);
           //casoedad(argv[i+1]);
             break;
@@ -577,4 +585,3 @@ int main(int argc, char **argv)
 }
 
 //termina main
-
