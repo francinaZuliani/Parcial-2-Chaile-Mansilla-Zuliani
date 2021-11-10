@@ -9,7 +9,6 @@
 #include <string>
 
 
-
 using namespace std;
 
 void chopCSV(string fileName, int lines)
@@ -184,101 +183,185 @@ int funcestad(string fileName)
 
 //p_casos
 
+//Funcion Tabla Hash
 /*
 unsigned int miHashFunc(string clave)
 {
-    unsigned int idx=0;
+    int idx;
     for(int i=0; i<clave.length(); i++){
-        idx += clave[i];
+       switch (i)
+       {
+           case 1: "Buenos Aires";
+           break;
+           case 2: "CABA";
+           break;
+           case 3: "Catamarca";
+           break;
+           case 4: "Chaco";
+           case 5: "Chubut";
+           break;
+           case 6: "Córdoba";
+           break;
+           case 7: "Corrientes";
+           break;
+           case 8: "Entre Ríos";
+           break;
+           case 9: "Formosa";
+           break;
+           case 10: "Jujuy";
+           break;
+           case 11: "La Pampa";
+           break;
+           case 12: "La Rioja";
+           break;
+           case 13: "Mendoza";
+           break;
+           case 14: "Misiones";
+           break;
+           case 15: "Neuquén";
+           break;
+           case 16: "Río Negro";
+           break;
+           case 17: "Salta";
+           break;
+           case 18: "San Juan";
+           break;
+           case 19: "San Luis";
+           break;
+           case 20: "Santa Cruz";
+           break;
+           case 21: "Santa Fe";
+           break;
+           case 22: "Santiago del Estero";
+           break;
+           case 23: "Tierra del Fuego";
+           break;
+           case 24: "Tucumán";
+           break;
+       }
     }
     return idx;
-}
-
-void p_casos(string fileName)
-{
-    int colsOfInterest[] = {5};
-    int nColumns = sizeof(colsOfInterest) / sizeof(colsOfInterest[0]);
-
-    int confirmadoscaba = -1,  confirmadosbsas = -1, confirmadosjujuy=-1, confirmadossalta=-1, confirmadosstafe=-1, confirmadosformosa = -1;
-
-    fstream fin;
-    fin.open("./" + fileName, ios::in);
-
-    Lista<string> row;
-    string line, word;
-
-
-    HashMap<string,int> th (23, &miHashFunc);
-    int tamanio = 23;
-
-
-    int total = -1;
-
-    while (getline(fin, line))
-    {
-        total++;
-        row.vaciar();
-        stringstream s(line);
-        while (getline(s, word, ','))
-        {
-            if (word.size() > 0)
-            {
-                word = word.substr(1, word.size() - 2);
-            }
-            else
-            {
-                word = "NA";
-            }
-            row.insertarUltimo(word);
-        }
-
-        if (row.getDato(20).compare("Confirmado") == 0 || total==0) //Filtramos los casos confirmados
-        {
-
-            for (int i = 0; i < nColumns; i++)
-            {
-                int a=1;
-                try{
-                    th.put(row.getDato(colsOfInterest[i]),a);
-                }catch(int error) {
-                    if (error==409){
-                        a++;
-                        th.put(row.getDato(colsOfInterest[i]),a);
-                    }
-                }
-            }
-        }
-
-    }
-    th.print();
 }
  */
-
-
 unsigned int miHashFunc(string clave)
 {
-    unsigned int idx=0;
+    int idx;
     for(int i=0; i<clave.length(); i++){
-        idx += clave[i];
+        if (clave=="Buenos Aires")
+        {
+            idx=0;
+        }
+        if (clave=="CABA")
+        {
+            idx=1;
+        }
+        if (clave=="Catamarca")
+        {
+            idx=2;
+        }
+        if (clave=="Chaco")
+        {
+            idx=3;
+        }
+        if (clave== "Chubut")
+        {
+            idx=4;
+        }
+        if (clave=="Córdoba")
+        {
+            idx=5;
+        }
+        if (clave=="Corrientes")
+        {
+            idx=6;
+        }
+        if (clave=="Entre Ríos")
+        {
+            idx=7;
+        }if (clave=="Formosa")
+        {
+            idx=8;
+        }
+        if (clave=="Jujuy")
+        {
+            idx=9;
+        }
+        if (clave=="La Pampa")
+        {
+            idx=10;
+        }
+        if (clave=="La Rioja")
+        {
+            idx=11;
+        }
+        if (clave=="Mendoza")
+        {
+            idx=12;
+        }
+        if (clave=="Misiones")
+        {
+            idx=13;
+        }
+        if (clave=="Neuquén")
+        {
+            idx=14;
+        }
+        if (clave=="Río Negro")
+        {
+            idx=15;
+        }
+        if (clave=="Salta")
+        {
+            idx=16;
+        }
+        if (clave=="San Juan")
+        {
+            idx=17;
+        }
+        if (clave=="San Luis")
+        {
+            idx=18;
+        }
+        if (clave=="Santa Cruz")
+        {
+            idx=19;
+        }
+        if (clave=="Santa Fe")
+        {
+            idx=20;
+        }
+        if (clave=="Santiago del Estero")
+        {
+            idx=21;
+        }
+        if (clave=="Tierra del Fuego")
+        {
+            idx=22;
+        }
+        if (clave=="Tucumán")
+        {
+            idx=23;
+        }
+
     }
     return idx;
 }
-
-void p_casos(string fileName)
+//funpcasos
+void funcasos(string fileName)
 {
-    int colsOfInterest[] = {5};
+    int colsOfInterest[] = {7};
     int nColumns = sizeof(colsOfInterest) / sizeof(colsOfInterest[0]);
 
     fstream fin;
     fin.open("./" + fileName, ios::in);
 
-    HashMap<string,int> th (23, &miHashFunc);
-    int tamanio = 23;
-
     Lista<string> row;
     string line, word;
 
     int total = -1;
+
+    //Defino tabla Hash
+    HashMap<string,int> TH (24,&miHashFunc);
 
     while (getline(fin, line))
     {
@@ -297,52 +380,65 @@ void p_casos(string fileName)
             }
             row.insertarUltimo(word);
         }
+
 
         if (row.getDato(20).compare("Confirmado") == 0 || total==0) //filtramos confirmados
         {
-
-            int a = 0;
-            for (int i = 0; i < nColumns; i++){
-
-                try{
-                    th.put(row.getDato(colsOfInterest[i]),1);
-                }catch(int error) {
-                    if (error==409){
-
-                        th.put(row.getDato(colsOfInterest[i]),a++);
-                    }
-                }
+            //int a=1;
+            if (row.getDato(7).compare("SIN ESPECIFICAR") != 0 && row.getDato(7).compare("carga_provincia_nombre") != 0)
+            {
+                TH.put(row.getDato(7),1);
             }
 
-        }
-    }
-    th.print();
-}
 
+
+            /*int n;
+                cout<<"Ingrese el numero de provincias con más contagios que desea ver: "<<endl;
+                cin>>n;
+                for (int i=0; i<n; i++)
+                {
+
+
+                }*/
+
+
+
+        }
+
+    }
+    TH.print();
+}
+void p_casos(int n){
+
+}
 
 //termina p_casos
 
 
-
+//p_muertes
 int funcmuertes(string fileName)
 {
     int colsOfInterest[] = {5};
     int nColumns = sizeof(colsOfInterest) / sizeof(colsOfInterest[0]);
 
     int muertescaba =-1;
-    Pila <string> p;
+
     fstream fin;
     fin.open("./" + fileName, ios::in);
 
-    vector<string> row;
+    Lista <string> row;
     string line, word;
-    int confirmed = 0;
+
     int total = -1;
+
+    //Defino tabla Hash
+
+    HashMap<string,int> TH (24,&miHashFunc);
 
     while (getline(fin, line))
     {
         total++;
-        row.clear();
+        row.vaciar();
         stringstream s(line);
         while (getline(s, word, ','))
         {
@@ -354,31 +450,72 @@ int funcmuertes(string fileName)
             {
                 word = "NA";
             }
-            row.push_back(word);
+            row.insertarUltimo(word);
         }
 
-        if (row[14].compare("SI") == 0 || total==0) //Filtramos los casos confirmados
+
+        if (row.getDato(14).compare("SI") == 0 || total==0) //Filtramos los casos confirmados
             {
+            if (row.getDato(5).compare("SIN ESPECIFICAR") != 0 && row.getDato(5).compare("residencia_provincia_nombre") != 0)
+            {
+                TH.put(row.getDato(7),1);
+            }
+
+            }       }TH.print();
+}
+//termina p_muertes
+
+
+// casos_edad (años)
+
+void casoedad(string fileName)
+{
+
+    int colsOfInterest[] = {5};
+    int nColumns = sizeof(colsOfInterest) / sizeof(colsOfInterest[0]);
+
+    fstream fin;
+    fin.open("./" + fileName, ios::in);
+
+    Lista<string> row;
+    Lista<string> p;
+    string line, word;
+
+    int total = -1;
+
+
+    while (getline(fin, line))
+    {
+        total++;
+        row.vaciar();
+        stringstream s(line);
+        while (getline(s, word, ','))
+        {
+            if (word.size() > 0)
+            {
+                word = word.substr(1, word.size() - 2);
+            }
+            else
+            {
+                word = "NA";
+            }
+            row.insertarUltimo(word);
+        }
+
+
+       string edad="20";
+
+
+        if (row.getDato(2).compare(edad) == 0 || total==0)
+         {
             for (int i = 0; i < nColumns; i++)
             {
-                //cout << row[colsOfInterest[i]] << " ";
+                cout<<row.getDato(colsOfInterest[i])<<endl;
+            }
+         }
 
-                p.push(row[colsOfInterest[i]]);
-            }
-            if (p.pop().compare("CABA") == 0 || total==0)
-            {
-                muertescaba++;
-            }
-
-            cout << endl;
-            }
     }
-    //cout<<muertescaba;
-
-    //return muertescaba;
 }
-
-
 
 
 
@@ -410,30 +547,34 @@ int main(int argc, char **argv)
     for (int i = 0; i < argc; i++)
     {
         cout << "Argumento " << i << ": " << argv[i] << endl;
-       /* switch () {
-             case 1: p_casos(n);
-             break;
-             case 2: p_muertes(n);
-             break;
-             case 3: casos_edad (años);
-             break;
-             case 4: casos_cui(fecha);
-             break;
-             case 5: estad;
-             break;
-         }*/
+        /* switch () {
+              case 1: estad;
+              break;
+              case 2: p_casos(n);
+              break;
+              case 3: p_muertes(n);
+              break;
+              case 4: casos_edad (años);
+              break;
+              case 5: casos_cui(fecha);
+              break;
+          }*/
 
         if(strcmp(argv[i], "-file") == 0){
             cout << "Nombre del Archivo: " << argv[i+1] << endl;
             //exploreHeaders(argv[i+1]);
            // exploreCSV(argv[i+1]);
-          p_casos(argv[i+1]);
+          //p_casos(argv[i+1]);
+            funcasos(argv[i+1]);
           //funcmuertes(argv[i+1]);
           //funcestad(argv[i+1]);
+          //casoedad(argv[i+1]);
             break;
         }
     }
 
     return 0;
 }
+
+//termina main
 

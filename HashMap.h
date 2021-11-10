@@ -90,8 +90,9 @@ template <class K, class T>
 
                                             if (tabla[pos] != NULL)
                                             {
-                                                //Manejar la Colision!!!!!!!
-                                                throw 409;
+                                                tabla[pos]->setValor(tabla[pos]->getValor() + valor); //Contagios++
+                                                return;
+                                                //throw 409;
                                             }
 
                                             tabla[pos] = new HashEntry<K, T>(clave, valor); //Corresponde a una fila en la tabla HASH
