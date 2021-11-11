@@ -349,9 +349,9 @@ unsigned int miHashFunc(string clave)
 }
 //funpcasos
 
-void funcasos(string fileName)
+void p_casos(string fileName, int n)
 {
-    int temp = 0;
+
     int c[24][2];
     int colsOfInterest[] = {7};
     int nColumns = sizeof(colsOfInterest) / sizeof(colsOfInterest[0]);
@@ -404,7 +404,6 @@ void funcasos(string fileName)
 
     c[0][1]=TH.get("Buenos Aires");
     c[1][1]=TH.get("CABA");
-
     c[2][1]=TH.get("Catamarca");
     c[3][1]=TH.get("Chaco");
     c[4][1]=TH.get("Chubut");
@@ -429,11 +428,13 @@ void funcasos(string fileName)
     c[23][1]=TH.get("Tucumán");
 
      TH.print();
+
+
     cout<<"\nMostrando matriz\n\n";
 
     for(int i=0;i<24;i++){
         for(int j=0;j<2;j++){
-            cout<<"         "<<c[i][j] <<"\t";
+            cout<<setw(5)<<c[i][j] <<"\t";
         }
         cout<<"\n";
     }
@@ -448,37 +449,40 @@ void funcasos(string fileName)
     }
     cout << endl;
 
-    for( int i = 0; i < 24; i++ ) {
-        for( int j = 1; j < 2; j++ ) {
-            for(int x = 0; x < 24; x++ ) {
-                for( int y = 1; y < 2; y++ ) {
+    int temp[4];
+    int valor;
 
-                    if( c[i][j] > c[x][y]) {
-                        temp = c[i][j];
-                        c[i][j] = c[x][y];
-                        c[x][y] = temp;
-                    }
-                }
-            }
+
+    for( int i = 1; i < 24; i++ ) {
+
+        valor = c[i][2-1];
+        temp[0] = c[i][0];
+        temp[1] = c[i][1];
+
+        j = i;
+        while( j > 0 && valor > c[j-1][2-1] ) {
+            c[j][0] =c[j-1][0];
+            c[j][1] = c[j-1][1];
+            j--;
         }
+        c[j][0] = temp[0];
+        c[j][1] = temp[1];
+
     }
 
-    cout << "\nDatos de la matriz ordenada :\n";
-    for( int i = 0; i < 24; i++ ) {
+
+    cout << "\nDatos de la matriz ordenada:\n";
+    for( int i = 0; i < n; i++ ) {
         cout << "\n| ";
         for(int j = 0; j < 2; j++ ) {
             cout << setw(2) << c[i][j] << " ";
         }
         cout << " |";
     }
-
     cout << endl;
-
-
 }
-void p_casos(int n){
 
-}
+
 
 //termina p_casos
 
@@ -656,6 +660,7 @@ void exploreHeaders(string fileName)
 
 int main(int argc, char **argv)
 {
+    int n;
     cout << "Cantidad de argumentos: " << argc << endl;
     for (int i = 0; i < argc; i++)
     {
@@ -677,8 +682,9 @@ int main(int argc, char **argv)
             cout << "Nombre del Archivo: " << argv[i+1] << endl;
             //exploreHeaders(argv[i+1]);
            // exploreCSV(argv[i+1]);
-          //p_casos(argv[i+1]);
-            funcasos(argv[i+1]);
+           cout << "ing n: " << n<< endl;
+           cin>>n;
+          p_casos(argv[i+1],n);
           //funcmuertes(argv[i+1]);
           //funcestad(argv[i+1]);
           //casoedad(argv[i+1]);
