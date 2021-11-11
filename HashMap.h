@@ -11,7 +11,7 @@ template <class K, class T>
                     unsigned int tamanio;
 
                     static unsigned int hashFunc(K clave); //funcion por si no recibimos otra
-
+                    static unsigned int hashFuncion(K clave);
                     unsigned int (*hashFuncP)(K clave);
 
                 public:

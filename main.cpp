@@ -181,69 +181,7 @@ int funcestad(string fileName)
 }
 //termina estadísticas
 
-
-//p_casos
-
-//Funcion Tabla Hash
-/*
-unsigned int miHashFunc(string clave)
-{
-    int idx;
-    for(int i=0; i<clave.length(); i++){
-       switch (i)
-       {
-           case 1: "Buenos Aires";
-           break;
-           case 2: "CABA";
-           break;
-           case 3: "Catamarca";
-           break;
-           case 4: "Chaco";
-           case 5: "Chubut";
-           break;
-           case 6: "Córdoba";
-           break;
-           case 7: "Corrientes";
-           break;
-           case 8: "Entre Ríos";
-           break;
-           case 9: "Formosa";
-           break;
-           case 10: "Jujuy";
-           break;
-           case 11: "La Pampa";
-           break;
-           case 12: "La Rioja";
-           break;
-           case 13: "Mendoza";
-           break;
-           case 14: "Misiones";
-           break;
-           case 15: "Neuquén";
-           break;
-           case 16: "Río Negro";
-           break;
-           case 17: "Salta";
-           break;
-           case 18: "San Juan";
-           break;
-           case 19: "San Luis";
-           break;
-           case 20: "Santa Cruz";
-           break;
-           case 21: "Santa Fe";
-           break;
-           case 22: "Santiago del Estero";
-           break;
-           case 23: "Tierra del Fuego";
-           break;
-           case 24: "Tucumán";
-           break;
-       }
-    }
-    return idx;
-}
- */
+//P_Casos
 unsigned int miHashFunc(string clave)
 {
     int idx;
@@ -349,6 +287,7 @@ unsigned int miHashFunc(string clave)
 }
 //funpcasos
 
+
 void p_casos(string fileName, int n)
 {
 
@@ -427,31 +366,8 @@ void p_casos(string fileName, int n)
     c[22][1]=TH.get("Tierra del Fuego");
     c[23][1]=TH.get("Tucumán");
 
-     TH.print();
-
-
-    cout<<"\nMostrando matriz\n\n";
-
-    for(int i=0;i<24;i++){
-        for(int j=0;j<2;j++){
-            cout<<setw(5)<<c[i][j] <<"\t";
-        }
-        cout<<"\n";
-    }
-
-    cout << "\nDatos de la matriz:\n";
-    for( int i = 0; i < 24; i++ ) {
-        cout << "\n| ";
-        for(int j = 0; j < 2; j++ ) {
-            cout << setw(2) << c[i][j] << " ";
-        }
-        cout << " |";
-    }
-    cout << endl;
-
     int temp[4];
     int valor;
-
 
     for( int i = 1; i < 24; i++ ) {
 
@@ -467,28 +383,72 @@ void p_casos(string fileName, int n)
         }
         c[j][0] = temp[0];
         c[j][1] = temp[1];
-
     }
 
 
-    cout << "\nDatos de la matriz ordenada:\n";
-    for( int i = 0; i < n; i++ ) {
-        cout << "\n| ";
-        for(int j = 0; j < 2; j++ ) {
-            cout << setw(2) << c[i][j] << " ";
+    for (int i=0; i<n; i++)
+    {
+        switch (c[i][0])
+        {
+            case 1: cout<<"Buenos Aires "<<c[i][1]<<" casos confirmados "<<endl;
+            break;
+            case 2:cout<< "CABA "<<c[i][1]<<" casos confirmados "<<endl;
+            break;
+            case 3: cout<<"Catamarca "<<c[i][1]<<" casos confirmados "<<endl;
+            break;
+            case 4: cout<<"Chaco "<<c[i][1]<<" casos confirmados "<<endl;
+            break;
+            case 5: cout<<"Chubut "<<c[i][1]<<" casos confirmados "<<endl;
+            break;
+            case 6: cout<<"Córdoba "<<c[i][1]<<" casos confirmados "<<endl;
+            break;
+            case 7: cout<<"Corrientes "<<c[i][1]<<" casos confirmados "<<endl;
+            break;
+            case 8:cout<< "Entre Ríos "<<c[i][1]<<" casos confirmados "<<endl;
+            break;
+            case 9: cout<<"Formosa "<<c[i][1]<<" casos confirmados "<<endl;
+            break;
+            case 10:cout<< "Jujuy "<<c[i][1]<<" casos confirmados "<<endl;
+            break;
+            case 11: cout<<"La Pampa "<<c[i][1]<<" casos confirmados "<<endl;
+            break;
+            case 12: cout<<"La Rioja "<<c[i][1]<<" casos confirmados "<<endl;
+            break;
+            case 13: cout<<"Mendoza "<<c[i][1]<<" casos confirmados "<<endl;
+            break;
+            case 14: cout<<"Misiones "<<c[i][1]<<" casos confirmados "<<endl;
+            break;
+            case 15: cout<<"Neuquén "<<c[i][1]<<" casos confirmados "<<endl;
+            break;
+            case 16: cout<<"Río Negro "<<c[i][1]<<" casos confirmados "<<endl;
+            break;
+            case 17: cout<<"Salta "<<c[i][1]<<" casos confirmados "<<endl;
+            break;
+            case 18: cout<<"San Juan "<<c[i][1]<<" casos confirmados "<<endl;
+            break;
+            case 19: cout<<"San Luis "<<c[i][1]<<" casos confirmados "<<endl;
+            break;
+            case 20: cout<<"Santa Cruz "<<c[i][1]<<" casos confirmados "<<endl;
+            break;
+            case 21:cout<< "Santa Fe "<<c[i][1]<<" casos confirmados "<<endl;
+            break;
+            case 22: cout<<"Santiago del Estero "<<c[i][1]<<" casos confirmados "<<endl;
+            break;
+            case 23: cout<<"Tierra del Fuego "<<c[i][1]<<" casos confirmados "<<endl;
+            break;
+            case 24: cout<<"Tucumán "<<c[i][1]<<" casos confirmados "<<endl;
+            break;
         }
-        cout << " |";
     }
-    cout << endl;
-}
 
+}
 
 
 //termina p_casos
 
 
 //p_muertes
-int funcmuertes(string fileName)
+int p_muertes(string fileName, int m)
 {
     int c[24][2];
     int colsOfInterest[] = {7};
@@ -526,7 +486,6 @@ int funcmuertes(string fileName)
 
         if (row.getDato(14).compare("SI") == 0 || total==0) //filtramos confirmados
             {
-            //int a=1;
             if (row.getDato(7).compare("SIN ESPECIFICAR") != 0 && row.getDato(7).compare("carga_provincia_nombre") != 0)
             {
                 TH.put(row.getDato(7),1);
@@ -542,7 +501,6 @@ int funcmuertes(string fileName)
 
     c[0][1]=TH.get("Buenos Aires");
     c[1][1]=TH.get("CABA");
-
     c[2][1]=TH.get("Catamarca");
     c[3][1]=TH.get("Chaco");
     c[4][1]=TH.get("Chubut");
@@ -566,39 +524,110 @@ int funcmuertes(string fileName)
     c[22][1]=TH.get("Tierra del Fuego");
     c[23][1]=TH.get("Tucumán");
 
-    TH.print();
-    cout<<"\nMostrando matriz\n\n";
 
-    for(int i=0;i<24;i++){
-        for(int j=0;j<2;j++){
-            cout<<"         "<<c[i][j] <<"\t";
+    for(int i=0;i<24;i++)
+    {
+
+        int temp[4];
+        int valor;
+
+        for( int i = 1; i < 24; i++ ) {
+
+            valor = c[i][2-1];
+            temp[0] = c[i][0];
+            temp[1] = c[i][1];
+
+            j = i;
+            while( j > 0 && valor > c[j-1][2-1] ) {
+                c[j][0] =c[j-1][0];
+                c[j][1] = c[j-1][1];
+                j--;
+            }
+            c[j][0] = temp[0];
+            c[j][1] = temp[1];
         }
-        cout<<"\n";
+    }
+    for (int i=0; i<m; i++)
+    {
+
+        switch (c[i][0])
+        {
+            case 1: cout<<"Buenos Aires "<<c[i][1]<<" fallecidos "<<endl;
+            break;
+            case 2:cout<< "CABA "<<c[i][1]<<" fallecidos "<<endl;
+            break;
+            case 3: cout<<"Catamarca "<<c[i][1]<<" fallecidos "<<endl;
+            break;
+            case 4: cout<<"Chaco "<<c[i][1]<<" fallecidos "<<endl;
+            break;
+            case 5: cout<<"Chubut "<<c[i][1]<<" fallecidos "<<endl;
+            break;
+            case 6: cout<<"Córdoba "<<c[i][1]<<" fallecidos "<<endl;
+            break;
+            case 7: cout<<"Corrientes "<<c[i][1]<<" fallecidos "<<endl;
+            break;
+            case 8:cout<< "Entre Ríos "<<c[i][1]<<" fallecidos "<<endl;
+            break;
+            case 9: cout<<"Formosa "<<c[i][1]<<" fallecidos "<<endl;
+            break;
+            case 10:cout<< "Jujuy "<<c[i][1]<<" fallecidos "<<endl;
+            break;
+            case 11: cout<<"La Pampa "<<c[i][1]<<" fallecidos "<<endl;
+            break;
+            case 12: cout<<"La Rioja "<<c[i][1]<<" fallecidos "<<endl;
+            break;
+            case 13: cout<<"Mendoza "<<c[i][1]<<" fallecidos "<<endl;
+            break;
+            case 14: cout<<"Misiones "<<c[i][1]<<" fallecidos "<<endl;
+            break;
+            case 15: cout<<"Neuquén "<<c[i][1]<<" fallecidos "<<endl;
+            break;
+            case 16: cout<<"Río Negro "<<c[i][1]<<" fallecidos "<<endl;
+            break;
+            case 17: cout<<"Salta "<<c[i][1]<<" fallecidos "<<endl;
+            break;
+            case 18: cout<<"San Juan "<<c[i][1]<<" fallecidos "<<endl;
+            break;
+            case 19: cout<<"San Luis "<<c[i][1]<<" fallecidos "<<endl;
+            break;
+            case 20: cout<<"Santa Cruz "<<c[i][1]<<" fallecidos "<<endl;
+            break;
+            case 21:cout<< "Santa Fe "<<c[i][1]<<" fallecidos "<<endl;
+            break;
+            case 22: cout<<"Santiago del Estero "<<c[i][1]<<" fallecidos "<<endl;
+            break;
+            case 23: cout<<"Tierra del Fuego "<<c[i][1]<<" fallecidos "<<endl;
+            break;
+            case 24: cout<<"Tucumán "<<c[i][1]<<" fallecidos "<<endl;
+            break;
+        }
     }
 }
-
 
 //termina p_muertes
 
 
 // casos_edad (años)
 
+
 void casoedad(string fileName)
 {
 
-    int colsOfInterest[] = {7,2,1,4,12,14,20,22};
+    int colsOfInterest[] = {0,7,2,1,4,12,14,20,22};
     int nColumns = sizeof(colsOfInterest) / sizeof(colsOfInterest[0]);
+    int r=0;
 
     fstream fin;
     fin.open("./" + fileName, ios::in);
 
     Lista<string> row;
-    HashMap<string,string> th (24,&miHashFunc);
+
     string line, word;
+
 
     int total = -1;
 
-
+    cout<<"Provincia - Edad - Sexo - Residencia_Pais - Cuidados intensivos - Fallecido - Caso - Fecha Diagnóstico"<<endl;
     while (getline(fin, line))
     {
         total++;
@@ -621,19 +650,62 @@ void casoedad(string fileName)
 
         if (row.getDato(2).compare("20") == 0 || total==0 && row.getDato(7).compare("carga_provincia_nombre") != 0)
         {
-            th.put2(row.getDato(7),row.getDato(7));
             for (int i=0; i<nColumns; i++)
             {
-                cout<<row.getDato(colsOfInterest[i])<<endl;
+                cout<<" - "<<row.getDato(colsOfInterest[i]);
             }
+            cout<<endl;
         }
-
-
     }
-
-    th.print();
 }
 
+
+void casos_cui(string fileName){
+    int colsOfInterest[] = {7,2,1,4,12,14,20,22};
+    int nColumns = sizeof(colsOfInterest) / sizeof(colsOfInterest[0]);
+
+
+    fstream fin;
+    fin.open("./" + fileName, ios::in);
+
+    Lista<string> row;
+    string line, word;
+
+    int total = -1;
+    int suma=0;
+    cout<<"Provincia - Edad - Sexo - Residencia_Pais - Cuidados intensivos - Fallecido - Caso - Fecha Diagnóstico"<<endl;
+    while (getline(fin, line))
+    {
+        total++;
+        row.vaciar();
+        stringstream s(line);
+        while (getline(s, word, ','))
+        {
+            if (word.size() > 0)
+            {
+                word = word.substr(1, word.size() - 2);
+            }
+            else
+            {
+                word = "NA";
+            }
+            row.insertarUltimo(word);
+        }
+
+        string edad="20";
+
+        if (row.getDato(12).compare("SI") == 0 || total==0 && row.getDato(13).compare("") != 0)
+        {
+            for (int i=0; i<nColumns; i++)
+            {
+                cout<<row.getDato(colsOfInterest[i])<<" - ";
+            }
+            cout<<endl;
+
+        }
+    }
+
+}
 
 
 
@@ -660,7 +732,7 @@ void exploreHeaders(string fileName)
 
 int main(int argc, char **argv)
 {
-    int n;
+    int n,m;
     cout << "Cantidad de argumentos: " << argc << endl;
     for (int i = 0; i < argc; i++)
     {
@@ -670,7 +742,7 @@ int main(int argc, char **argv)
               break;
               case 2: p_casos(n);
               break;
-              case 3: p_muertes(n);
+              case 3: p_muertes(m);
               break;
               case 4: casos_edad (años);
               break;
@@ -682,12 +754,15 @@ int main(int argc, char **argv)
             cout << "Nombre del Archivo: " << argv[i+1] << endl;
             //exploreHeaders(argv[i+1]);
            // exploreCSV(argv[i+1]);
-           cout << "ing n: " << n<< endl;
-           cin>>n;
-          p_casos(argv[i+1],n);
-          //funcmuertes(argv[i+1]);
+           //cout << "ing n: " << endl;
+           //cin>>n;
+           //cout << "ing m: " << endl;
+           //cin>>m;
+          //p_casos(argv[i+1],n);
+          //p_muertes(argv[i+1], m);
           //funcestad(argv[i+1]);
-          //casoedad(argv[i+1]);
+          casoedad(argv[i+1]);
+          //casos_cui(argv[i+1]);
             break;
         }
     }
