@@ -23,7 +23,7 @@ template <class K, class T>
                     T get(K clave); //pasar la clave y te devuelve el contenido
 
                     void put(K clave, T valor); // insercion
-
+                    void put2(K clave, T valor); // insercion
                     void remove(K clave);
 
                     ~HashMap(); //destructor
@@ -76,7 +76,7 @@ template <class K, class T>
                                     unsigned int pos = hashFuncP(clave) % tamanio;
                                     if (tabla[pos] == NULL)
                                     {
-                                        throw 404;
+                                        return 0;
                                     }
 
                                     if(tabla[pos]->getClave() == clave){
@@ -94,6 +94,19 @@ template <class K, class T>
                                             if (tabla[pos] != NULL)
                                             {
                                                 tabla[pos]->setValor(tabla[pos]->getValor() + valor); //Contagios++
+                                                return;
+                                                //throw 409;
+                                            }
+
+                                            tabla[pos] = new HashEntry<K, T>(clave, valor); //Corresponde a una fila en la tabla HASH
+                                        }
+                                        template <class K, class T>
+                                        void HashMap<K, T>::put2(K clave, T valor)
+                                        {
+                                            unsigned int pos = hashFuncP(clave) % tamanio;
+
+                                            if (tabla[pos] != NULL)
+                                            {
                                                 return;
                                                 //throw 409;
                                             }

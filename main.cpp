@@ -7,6 +7,7 @@
 #include "Lista.h"
 #include "HashMap.h"
 #include <string>
+#include <iomanip>
 
 
 using namespace std;
@@ -350,6 +351,7 @@ unsigned int miHashFunc(string clave)
 
 void funcasos(string fileName)
 {
+    int temp = 0;
     int c[24][2];
     int colsOfInterest[] = {7};
     int nColumns = sizeof(colsOfInterest) / sizeof(colsOfInterest[0]);
@@ -391,16 +393,41 @@ void funcasos(string fileName)
             {
                 TH.put(row.getDato(7),1);
             }
-
         }
-
     }
+
     for(int i = 0; i < 24; i++)
     {
         j++;
         c[i][0]=j;
-        c[i][1]=TH.get(row.getDato(7));
     }
+
+    c[0][1]=TH.get("Buenos Aires");
+    c[1][1]=TH.get("CABA");
+
+    c[2][1]=TH.get("Catamarca");
+    c[3][1]=TH.get("Chaco");
+    c[4][1]=TH.get("Chubut");
+    c[5][1]=TH.get("Córdoba");
+    c[6][1]=TH.get("Corrientes");
+    c[7][1]=TH.get("Entre Ríos");
+    c[8][1]=TH.get("Formosa");
+    c[9][1]=TH.get("Jujuy");
+    c[10][1]=TH.get("La Pampa");
+    c[11][1]=TH.get("La Rioja");
+    c[12][1]=TH.get("Mendoza");
+    c[13][1]=TH.get("Misiones");
+    c[14][1]=TH.get("Neuquén");
+    c[15][1]=TH.get("Río Negro");
+    c[16][1]=TH.get("Salta");
+    c[17][1]=TH.get("San Juan");
+    c[18][1]=TH.get("San Luis");
+    c[19][1]=TH.get("Santa Cruz");
+    c[20][1]=TH.get("Santa Fe");
+    c[21][1]=TH.get("Santiago del Estero");
+    c[22][1]=TH.get("Tierra del Fuego");
+    c[23][1]=TH.get("Tucumán");
+
      TH.print();
     cout<<"\nMostrando matriz\n\n";
 
@@ -410,6 +437,43 @@ void funcasos(string fileName)
         }
         cout<<"\n";
     }
+
+    cout << "\nDatos de la matriz:\n";
+    for( int i = 0; i < 24; i++ ) {
+        cout << "\n| ";
+        for(int j = 0; j < 2; j++ ) {
+            cout << setw(2) << c[i][j] << " ";
+        }
+        cout << " |";
+    }
+    cout << endl;
+
+    for( int i = 0; i < 24; i++ ) {
+        for( int j = 1; j < 2; j++ ) {
+            for(int x = 0; x < 24; x++ ) {
+                for( int y = 1; y < 2; y++ ) {
+
+                    if( c[i][j] > c[x][y]) {
+                        temp = c[i][j];
+                        c[i][j] = c[x][y];
+                        c[x][y] = temp;
+                    }
+                }
+            }
+        }
+    }
+
+    cout << "\nDatos de la matriz ordenada :\n";
+    for( int i = 0; i < 24; i++ ) {
+        cout << "\n| ";
+        for(int j = 0; j < 2; j++ ) {
+            cout << setw(2) << c[i][j] << " ";
+        }
+        cout << " |";
+    }
+
+    cout << endl;
+
 
 }
 void p_casos(int n){
@@ -466,9 +530,48 @@ int funcmuertes(string fileName)
 
             }
 
+    }for(int i = 0; i < 24; i++)
+    {
+        j++;
+        c[i][0]=j;
     }
+
+    c[0][1]=TH.get("Buenos Aires");
+    c[1][1]=TH.get("CABA");
+
+    c[2][1]=TH.get("Catamarca");
+    c[3][1]=TH.get("Chaco");
+    c[4][1]=TH.get("Chubut");
+    c[5][1]=TH.get("Córdoba");
+    c[6][1]=TH.get("Corrientes");
+    c[7][1]=TH.get("Entre Ríos");
+    c[8][1]=TH.get("Formosa");
+    c[9][1]=TH.get("Jujuy");
+    c[10][1]=TH.get("La Pampa");
+    c[11][1]=TH.get("La Rioja");
+    c[12][1]=TH.get("Mendoza");
+    c[13][1]=TH.get("Misiones");
+    c[14][1]=TH.get("Neuquén");
+    c[15][1]=TH.get("Río Negro");
+    c[16][1]=TH.get("Salta");
+    c[17][1]=TH.get("San Juan");
+    c[18][1]=TH.get("San Luis");
+    c[19][1]=TH.get("Santa Cruz");
+    c[20][1]=TH.get("Santa Fe");
+    c[21][1]=TH.get("Santiago del Estero");
+    c[22][1]=TH.get("Tierra del Fuego");
+    c[23][1]=TH.get("Tucumán");
+
     TH.print();
+    cout<<"\nMostrando matriz\n\n";
+
+    for(int i=0;i<24;i++){
+        for(int j=0;j<2;j++){
+            cout<<"         "<<c[i][j] <<"\t";
+        }
+        cout<<"\n";
     }
+}
 
 
 //termina p_muertes
@@ -479,14 +582,14 @@ int funcmuertes(string fileName)
 void casoedad(string fileName)
 {
 
-    int colsOfInterest[] = {5};
+    int colsOfInterest[] = {7,2,1,4,12,14,20,22};
     int nColumns = sizeof(colsOfInterest) / sizeof(colsOfInterest[0]);
 
     fstream fin;
     fin.open("./" + fileName, ios::in);
 
     Lista<string> row;
-    Lista<string> p;
+    HashMap<string,string> th (24,&miHashFunc);
     string line, word;
 
     int total = -1;
@@ -510,19 +613,21 @@ void casoedad(string fileName)
             row.insertarUltimo(word);
         }
 
+        string edad="20";
 
-       string edad="20";
-
-
-        if (row.getDato(2).compare(edad) == 0 || total==0)
-         {
-            for (int i = 0; i < nColumns; i++)
+        if (row.getDato(2).compare("20") == 0 || total==0 && row.getDato(7).compare("carga_provincia_nombre") != 0)
+        {
+            th.put2(row.getDato(7),row.getDato(7));
+            for (int i=0; i<nColumns; i++)
             {
                 cout<<row.getDato(colsOfInterest[i])<<endl;
             }
-         }
+        }
+
 
     }
+
+    th.print();
 }
 
 
@@ -573,8 +678,8 @@ int main(int argc, char **argv)
             //exploreHeaders(argv[i+1]);
            // exploreCSV(argv[i+1]);
           //p_casos(argv[i+1]);
-            //funcasos(argv[i+1]);
-          funcmuertes(argv[i+1]);
+            funcasos(argv[i+1]);
+          //funcmuertes(argv[i+1]);
           //funcestad(argv[i+1]);
           //casoedad(argv[i+1]);
             break;
